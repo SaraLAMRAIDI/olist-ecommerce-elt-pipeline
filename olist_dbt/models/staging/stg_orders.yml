@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned and standardized Olist orders"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Customer identifier"
+        tests:
+          - not_null
+      - name: order_status
+        description: "Order status"
+        tests:
+          - accepted_values:
+              values: ['delivered', 'shipped', 'canceled', 'invoiced', 'processing', 'unavailable', 'approved', 'created']
