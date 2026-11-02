@@ -26,3 +26,6 @@ __pycache__/
 # Airflow
 dags/__pycache__/
 logs/
+
+# MinIO
+minio_data/
