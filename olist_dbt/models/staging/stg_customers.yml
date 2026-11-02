@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned and standardized Olist customers"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier per order"
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: "Unique customer identifier across orders"
+        tests:
+          - not_null
+      - name: state
+        description: "Customer state (Brazilian UF)"
+        tests:
+          - not_null

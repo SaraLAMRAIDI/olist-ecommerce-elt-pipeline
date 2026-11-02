@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_orders_enriched
+    description: "Orders enriched with customer and item information. Some orders (canceled/unavailable) have no items, hence NULL total_item_value."
+    columns:
+      - name: order_id
+        description: "Order identifier"
+        tests:
+          - not_null
+      - name: customer_unique_id
+        description: "Unique customer identifier"
+        tests:
+          - not_null
+      - name: total_item_value
+        description: "Total value of the item (price + freight). NULL for orders without items."
