@@ -6,6 +6,8 @@ Built entirely with open-source tools, running locally.
 
 ## 🏗️ Architecture
 [CSV Files] → [Airflow] → [DuckDB (Raw)] → [dbt (Staging → Marts)] → [DuckDB (Analytics)]
+<img width="1847" height="868" alt="Capture d&#39;écran 2026-11-02 162236" src="https://github.com/user-attachments/assets/b3972d7b-ba7d-4fb3-8f63-27b3a24e5a70" />
+
 
 ## 🛠️ Tech Stack
 - **Orchestration:** Apache Airflow

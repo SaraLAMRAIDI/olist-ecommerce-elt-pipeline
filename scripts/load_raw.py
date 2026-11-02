@@ -1,18 +1,23 @@
+import os
 import duckdb
 from pathlib import Path
 
-# Connexion à la base DuckDB à la racine du projet
-db_path = Path(__file__).parent.parent / "olist.duckdb"
-con = duckdb.connect(str(db_path))
+# Répertoire de base : /opt/airflow dans Docker, racine du projet en local
+BASE_DIR = Path(os.getenv("AIRFLOW_HOME", Path(__file__).parent.parent))
 
-# Créer le schéma raw
+# Chemin vers la base DuckDB
+db_path = BASE_DIR / "olist.duckdb"
+
+# Chemin vers les CSV
+data_dir = BASE_DIR / "data" / "raw"
+
+con = duckdb.connect(str(db_path))
 con.execute("CREATE SCHEMA IF NOT EXISTS raw")
 
-# Charger les 3 CSV dans le schéma raw
 csv_files = {
-    "olist_orders_dataset": "data/raw/olist_orders_dataset.csv",
-    "olist_customers_dataset": "data/raw/olist_customers_dataset.csv",
-    "olist_order_items_dataset": "data/raw/olist_order_items_dataset.csv",
+    "olist_orders_dataset": data_dir / "olist_orders_dataset.csv",
+    "olist_customers_dataset": data_dir / "olist_customers_dataset.csv",
+    "olist_order_items_dataset": data_dir / "olist_order_items_dataset.csv",
 }
 
 for table_name, csv_path in csv_files.items():

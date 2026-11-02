@@ -1,0 +1,8 @@
+olist_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '/opt/airflow/olist.duckdb'
+      schema: main
+      threads: 4
