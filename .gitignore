@@ -1,0 +1,24 @@
+# Environnements virtuels
+.venv/
+venv/
+
+# Bases de données DuckDB
+*.duckdb
+
+# Fichiers téléchargés manuellement
+*.whl
+
+# Données brutes (fichiers CSV volumineux)
+data/raw/*.csv
+
+# Logs
+logs/
+olist_dbt/logs/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
