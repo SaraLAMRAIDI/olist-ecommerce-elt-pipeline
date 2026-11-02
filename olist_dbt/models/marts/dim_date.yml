@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Date dimension covering the Olist dataset period"
+    columns:
+      - name: date_day
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null

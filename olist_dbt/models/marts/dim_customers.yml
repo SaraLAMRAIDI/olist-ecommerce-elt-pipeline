@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension"
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
